@@ -1,0 +1,89 @@
+Q1.   Write a python script to print the following status of a file:
+             a. Wether a file is read only
+             b. Wether a file is closed or not
+             c. Which file opening mode is used
+             d. Name of the file
+Ans.  f=open('abc.txt','w')
+      f.write("ABCEDEFGHIJKLMNOPQRSTUVWXYZ")                        
+      f.close()               
+          
+      print(f.name)
+      print(f.mode)
+      
+Q2.   Write a python script to create a new file 'myfile.txt' and store user enterd data.
+Ans.   def write(filename,text):
+            with open(filename,'w') as f:
+            f.write(text)
+      write('myfile.txt',"MySirG")
+      
+Q3.  Write a python script to read the above created file 'myfile.txt' and display content on the concole.
+Ans.  def read(filename):
+           try:
+             c=open(filename,'r')
+             v=c.read()
+             c.colse()
+             print(v)
+           except FileNotFoundError:
+             print("File doesn't exist")
+      read('myfile.txt')
+      
+Q4.  Write a python script to store a list of city names in a file 'cities.txt'.
+Ans.  def cities_name(filename,city):
+               f=open(filename,'w')
+               f.writelines(city)
+               f.close()
+      cities_name('cities.txt',['Begusarai','  Gaura','  Bhopal','  Patna,'  Andhra pradesh'])
+      
+Q5.  Write a python script to append list of a city names in a file 'cities.txt'.
+Ans.  def city_name(filename,city):
+              f=open(filename,'a')
+              f.writelines(city)
+              f.close()
+      city_name('cities.txt',["  NewYork","  Hong-Kong","  Beljium"])
+      
+Q6.  Write a python script to search wether a particular city in there in the file 'cities.txt' or not.
+Ans.   def search(filename,text):
+             try:
+               f=open(filename,'r')
+               line_count=0
+               for i in f.readlines():
+                      line_count+=1
+                      strlist=i.split(' ')
+                      word_count=0
+                      for w in strlist:
+                         word_list+=1
+                         if text==w:
+                             print("Yes City name are available in file")
+                         else:
+                             print("Given CIty name aren't in file")
+               exception FileNotFoundError:
+                       print("File doesn't Exist")
+                       
+         search('cities.txt','Bhopal')
+         
+//Q7.   Write a python script to count the number of python keywords occouring in a python source file.
+Ans.   import keywords
+            
+Q8.  Write a python script to create a copy of a file.
+Ans.   import shutil
+       shutil.copyfile('myfile.txt',''iNeuron.txt')
+       
+Q9.  Write a python script to store book data in a file.Book data is in the form of a dictonary in which book name is the key and price is its value.
+             Use pickle to store book data into a file(say bookfile).
+Ans.   import pickle
+       bookfile={"learn D.S":540,"Learn python":859.20,"Explore the cloud World":4500,"Information Technology":$120}
+       f=open('bookdata.txt','wb')
+       pickle.dump(bookdata.f)
+       f.close()
+       
+Q10.  Write a python script to extract book data from a bookfile using pickle. Also print extracted book data.
+Ans.   import pickle 
+       f=open('bookdata.txt','rb')
+       c=pickle.load(f)
+       for i in c:
+            print(key,'   ',c[key])
+       f.close()
+      
+      
+
+      
